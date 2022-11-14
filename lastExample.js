@@ -18,7 +18,6 @@ if (person1.point > person2.point){
     }else{
         break;
     }
-}
 
 let person3 = {
     name: "이일리",
