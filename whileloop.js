@@ -70,7 +70,7 @@ let randomval1 = parseInt(Math.random()*100);
             break;
         }
     }
-console.log(randomval1);//마지막에 얼마인지 출력 안됨 되게 하기
+console.log(randomval1);//단독으로 하니까 
 
 
 
