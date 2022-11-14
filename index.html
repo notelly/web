@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table:nth-child(2) td{
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+        }
+
+        table:nth-of-type(2) th,
+        table:nth-of-type(2) td{
+            display: inline-block;
+            text-align: center;
+            border: 1px solid black;
+            width: 100px;
+            margin: 1px;
+            padding: 5px;
+        } /*이거 왜 안되냐 과일 가격표 수정하는거 아닌가 3을 2로 바꾸니까 됨*/
+
+        table:nth-of-type(3) th,
+        table:nth-of-type(3) td{
+            display: inline-block;
+            text-align: center;
+            border: 1px solid black;
+            width: 100px;
+            margin: 1px;
+            padding: 5px;
+        } /*이거 왜 안되냐 과일 가격표 수정하는거 아닌가 3을 2로 바꾸니까 됨*/
+
+
+
+        tr:nth-of-type(2n){
+            background-color: azure;
+        }
+        tr:nth-of-type(2n+1){
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- <table>
+        <tr>
+            <td>Apple</td>
+        </tr>
+        <tr>
+            <td>Banana</td>
+        </tr>
+        <tr>
+            <td>Cherry</td>
+        </tr>
+    </table> -->
+    <script src="./lastExample.js"></script>
+</body>
+</html>
