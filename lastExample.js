@@ -11,10 +11,9 @@ let person2 = {
 // 두사람 중에 포인트가 높은 사람의 이름을 프린트 하세요.
 console.log(person1.point);
 console.log(person2.point);
-while(true){
-    if (person1.point > person2.point){
-        console.log(person1.point);
-    }else if (person1.point < person2.point){
+if (person1.point > person2.point){
+      console.log(person1.point);
+}else if (person1.point < person2.point){
         console.log(person2.point);
     }else{
         break;
