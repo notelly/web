@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom.html</title>
+    <style>
+        div{
+            width: 60%;
+            height:  250px;
+            background-color: lightpink;
+        }
+        span{
+            display:  inline-block;
+            width: 100px;
+            padding: 2px;
+            background-color: lightblue;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show">
+
+    </div>
+    <br>
+    <input type ="text" id = "write" ><button id="btn">삭제</button>
+    <script>
+        let words =
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis minima quas iste consequatur sapiente totam, sunt itaque saepe accusantium molestias facilis sit velit possimus delectus reiciendis at quidem, voluptatem commodi."
+        let wordAry = words.split(' '); // <span>Lorem</span> split ' ' >>공백기준으로 라는 의미 ''은 알파벳 하나하나
+
+        let show = document.getElementById('show');
+        for(word of wordAry){
+            let span = document.createElement('span');
+            span.innerText = word;
+            show.append(span);
+        }
+        //버튼 클릭 이벤트 등록, 사용자 입력한 값이랑 같은 span 찾아서 display ='none'하면 화면에서 사라짐
+        //document.querySelector('span').style.display='none';
+        //code here
+        document.getElementById('write').addEventListener('change', remove); // change로 바꿨을 때 btn도 write로 바꿔주어야 한다.
+        document.getElementById('btn').addEventListener('click', remove); //click을 했을 때 함수가 작동한다. >> remove를 써야지 remove()를 쓰면 안된다.
+        function remove(){
+            let all = document.querySelectorAll('span'); //querySelector가 아니라 querySelectorAll 다가지고 와야하기 때문에
+            let write = document.getElementById('write').value; //사용자의 입력값
+            for(let one of all){
+                let oneIn = one.innerText;
+                console.log(oneIn); //span.innerText 사용자입력값과 비교.
+                if (oneIn == write){
+                    one.style.visibility = 'hidden'; //oneIn은 text이기 때문에 one을 써주어야 한다. display= 'none'공간도 사라짐 visibility = 'hidden' 하면 자리는 있되 안보인다.
+                }
+
+            }
+            document.querySelector('#write').value = ''; //innerText 속성 value 속성 차이 알기. 사용자가 입력한 값 읽어오기.
+        }
+
+
+        // document.querySelector('span').style.display='none';
+    </script>    
+</body>
+</html>

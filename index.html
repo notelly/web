@@ -4,56 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        table:nth-child(2) td{
-            display: inline-block;
-            width: 20px;
-            text-align: center;
-        }
-
-        table:nth-of-type(2) th,
-        table:nth-of-type(2) td{
-            display: inline-block;
-            text-align: center;
-            border: 1px solid black;
-            width: 100px;
-            margin: 1px;
-            padding: 5px;
-        } /*이거 왜 안되냐 과일 가격표 수정하는거 아닌가 3을 2로 바꾸니까 됨*/
-
-        table:nth-of-type(3) th,
-        table:nth-of-type(3) td{
-            display: inline-block;
-            text-align: center;
-            border: 1px solid black;
-            width: 100px;
-            margin: 1px;
-            padding: 5px;
-        } /*이거 왜 안되냐 과일 가격표 수정하는거 아닌가 3을 2로 바꾸니까 됨*/
-
-
-
-        tr:nth-of-type(2n){
-            background-color: azure;
-        }
-        tr:nth-of-type(2n+1){
-            background-color: lightblue;
-        }
-    </style>
+    <title>메인페이지</title>
+    <link rel = "stylesheet" href="css/cust_style.css">
+    <script src="js/dom3.js"></script>
 </head>
 <body>
-    <!-- <table>
-        <tr>
-            <td>Apple</td>
-        </tr>
-        <tr>
-            <td>Banana</td>
-        </tr>
-        <tr>
-            <td>Cherry</td>
-        </tr>
-    </table> -->
-    <script src="./lastExample.js"></script>
+    이름: <input type = "text" name = "name" id = "name"><br>
+    나이: <input type = "numder" name = "age" id = "age"><br>
+    생일: <input type = "date" name = "birth" id = "birth"><br>
+    <button id="btn">추가</button> <!--button#btn{클릭}아이디값을 btn으로 만들어줌-->
+    <button id="delBtn">선택삭제</button>
+    <button id="chg">변경</button>
+
+
+
+
+    <div class = "show">
+      <table id="list"></table> <!--ul#list--> <!--<thead><tr><th>이름</th><th>나이</th><th>생일</th><tr><thead>-->
+    </div>
+
 </body>
 </html>

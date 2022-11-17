@@ -2,7 +2,7 @@
 
 
 let names = ["이가영", "장독대", "김가루"];
-names.push("박무침");
+names.push("박나물");
 names.splice(names.length, 0, '이면지');
 names.splice(names.length, 0, '권투장');
 names.splice(names.length, 0, '채끝살');
