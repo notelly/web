@@ -29,19 +29,22 @@ function loadCallback(){
 
 //정보수정
 function imfoChg(){
-    let imforms = document.querySelectorAll('tbody>td');
+    let inputName =document.querySelector('#name').value;
+    let inputAge = document.querySelector('#age').value;
+    let inputBirth = document.querySelector('#birth').value;
+    let imforms = document.querySelectorAll('tbody tr'); //왜 td가 아니라 tr을 불러오지?
     for(let imfo of imforms){
-        let inputName =document.querySelector('#name').value;
-        let name =document.querySelector(imfo);
-        if (inputName == name){
-            let inputAge = document.querySelector('#age').value;
-            let inputBirth = document.querySelector('#birth').value;
-            age = inputAge;
-            birth = inputBirth;
-        }
-
+        if (imfo.children[0].innerText == inputName){
+            imfo.children[1].innerText = inputAge;
+            imfo.children[2].innerText = inputBirth;
+            }
     }
 }
+        // let name = document.querySelector(imfo);
+        // if (inputName == name){
+        //     age = inputAge;
+        //     birth = inputBirth;
+        // }
 
 function delteFnc(){
     let allChk = document.querySelectorAll('tbody input[type = "checkbox"]:checked'); //tbody를 넣어줌으로서 title은 없애지 않는다.
