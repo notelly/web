@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 프레임워크 개발자 양성과정</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="disp">
+            <label>학생이름:</label> <input type="text" name="name" id="name"><br>
+            <label>나이:</label> <input type="text" name="age" id="age"><br>
+            <label>점수:</label> <input type="text" name="score" id="score"><br>
+        </div>
+
+        <div class="fnc">
+            <button id="addBtn">등록</button>
+            <button id="chDel">선택삭제</button>
+        </div>
+
+        <div class="cal">
+            <button id="avgBtn">평균계산</button>
+            <button id="maxBtn">최고점수</button>
+        </div>
+        <table id="result" border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>점수</th>
+                    <th><span id="last"><input type="checkbox"></span></th>
+                </tr>
+            </thead>
+            <tbody id="list">
+            </tbody>
+        </table>
+        <hr>
+
+    </header>
+
+    <main>
+        <div id="calculate">
+            <span id="max">최고점수: </span>
+            <span id="ave">평균점수: </span>
+        </div>
+    </main>
+
+    <script>
+        let students = [{
+            name: "황은수",
+            age: 20,
+            score: 70
+        }, {
+            name: "김이서",
+            age: 21,
+            score: 80
+        }, {
+            name: "박민수",
+            age: 25,
+            score: 90
+        }]
+        let table = document.getElementById('result');
+        let tbody = document.getElementById('list');
+        table.append(makeTr());
+
+
+
+        document.getElementById('addBtn').addEventListener('click', addFunc);
+        document.getElementById('chDel').addEventListener('click', delteFunc);
+        document.getElementById('avgBtn').addEventListener('click', avg);
+        document.getElementById('maxBtn').addEventListener('click', maxF);
+
+        //기존 값 입력
+        function makeTr() {
+            for (let student of students) {
+                let tr = makeRow(student);
+                tbody.append(tr);
+            }
+            return tbody;
+        }
+
+        //입력값 추가
+        function addFunc() {
+            let name = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            let score = document.getElementById('score').value;
+            let props = {
+                name: name,
+                age: age,
+                score: score
+            };
+            document.querySelector('tbody').append(makeRow(props));
+        }
+
+        //체크박스 선택 후 삭제 ☆나중에 좀더 공부
+        function delteFunc() {
+            let allChk = document.querySelectorAll('tbody input[type = "checkbox"]:checked');
+            console.log(allChk);
+            for (let chk of allChk) {
+                chk.parentElement.parentElement.remove();
+            }
+        }
+
+        // 헤더부분 체크박스 선택시 전체 선택/전체헤제가 되도록 구현하라.
+        document.getElementById('last').addEventListener(('thead input[type ="checkbox"]:checked'), allCl);
+
+        function allCl() {
+            let allCli = document.querySelectorAll('input[type = "checkbox]')
+            for (let cli of allCli) {
+                cli.checked = this.checked;
+            }
+        }
+
+        console.log(tbody.children[1].children[2]);
+        //평균 점수 계산
+        function avg() {
+            let arrys = [];
+            for (let i = 0; i < tbody.children.length; i++) {
+                console.log(tbody.children[i].children[2]);
+                arrys.push(tbody.children[i].children[2]);
+                console.log(arrys);
+            }
+            let sum = 0;
+            for (let arry of arrys) {
+                console.log(arry);
+                console.log(arry.innerText);
+                arry = arry.innerText;
+                sum = sum + parseInt(arry);
+                console.log(sum)
+                let av = sum / arrys.length;
+                ave.innerText = "평균점수: " + av;
+
+            }
+
+
+        }
+        //최고점수
+        function maxF() {
+            let arrys = [];
+            for (let i = 0; i < tbody.children.length; i++) {
+                console.log(tbody.children[i].children[2]);
+                arrys.push(tbody.children[i].children[2]);
+                console.log(arrys);
+            }
+            let maxi = 0;
+            for (let arry of arrys) {
+                for (let j = 0; j < arry.length; j++); {
+                    console.log(arry);
+                    console.log(arry.innerText);
+                    arry = parseInt(arry.innerText);
+                    if (maxi < arry){
+                    console.log(maxi, arry);
+                    maxi = (arry);
+                    console.log(maxi);
+                    }
+                }
+                max.innerText = "최고점수: " + maxi;
+
+            }
+
+
+        }
+
+        function makeRow(member = {}) {
+            let tr = document.createElement('tr')
+            for (let prop in member) {
+                let td = document.createElement('td');
+                let txt = document.createTextNode(member[prop]);
+                td.append(txt);
+                tr.append(td);
+            }
+            let td = document.createElement('td');
+            let check = document.createElement('input');
+            check.setAttribute('type', 'checkbox')
+            td.append(check);
+            tr.append(td);
+
+            return tr;
+        }
+    </script>
+
+</body>
+
+</html>

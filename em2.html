@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2</title>
+
+</head>
+<body>
+    <!-- <form action="index.html"> -->
+        과일: <input type="text" name ="fruit" id="fruit"><br>
+        가격: <input type="number" name ="price" id="price"><br>      
+        <button id ="addBtn">추가</button>
+    </form>
+    <br>
+    <ul id = "list">
+    </ul>
+    
+    <script>
+        let ul = document.getElementById('list');
+        let text = document.querySelector("#fruit").value;
+        let num = document.querySelector("#price").value;
+
+        document.getElementById('addBtn').addEventListener('click', addFunc);
+
+        function addFunc(){
+            let inputName = document.querySelector('#fruit').value;
+            let inputPrice = document.querySelector('#price').value;
+            let props = {fruit: inputName, price: inputPrice};
+            let li = document.createElement('li');
+            for (let prop in props){
+                let txt = document.createTextNode(props[prop]);
+                li.append(txt);
+            }
+            ul.append(li);
+        }
+        //<li>a</li><li>b</li>
+            // for (let prop in props){
+            //     let txt = document.createTextNode(props[prop]);
+            //     let li = document.createElement('li');
+
+            //     li.append(txt);
+            //     ul.append(li);
+            // }
+
+        //<li>a</li><li>b</li>에서 <li>ab</li>로 만들어야함 어캐하지 순서
+        
+        document.querySelector('#list')
+        
+
+
+    </script>
+
+</body>
+</html>

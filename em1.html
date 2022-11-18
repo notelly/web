@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+
+</head>
+<body>
+    <input type = 'number' name ='first' id = 'first'>
+    <input type = 'number' name ='last' id = 'last'> =
+    <input type = 'number' name ='result' id = 'result' >
+    <br><br>
+    <button id = "add">더하기</button>
+    <button id = "diff">빼기</button>
+    <button id = "multi">곱하기</button>
+    <button id = "div">나누기</button>
+    
+    <script>
+        document.getElementById('add').addEventListener('click', addFunc);
+        // document.getElementById('diff').addEventListener('click', diffFunc);
+        // document.getElementById('multi').addEventListener('click', multiFunc);
+        // document.getElementById('div').addEventListener('click', divFunc);
+
+        //함수
+        let first = document.querySelector('#first').value;
+        let last = document.querySelector('#last').value;
+        let result = document.querySelector('#result');
+
+        function addFunc(){
+        result = parseInt(first) + parseInt(last);
+        console.log(result);
+        result.innerText = result;
+
+        }
+
+        // function diffFunc(){
+        //     result = first.innerText - last.innerText;
+        // }
+
+        // function multiFunc(){
+        //     result = first.innerText * last.innerText;
+        // }
+
+        // function divFunc(){
+        //     result = first.innerText / last.innerText;
+        // }
+
+
+    </script>
+
+</body>
+</html>

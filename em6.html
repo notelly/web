@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex6</title>
+</head>
+<body>
+    <div id = "list">
+        <p>200</p>
+        <p>150</p>
+        <p>110</p>
+        <p>90</p>
+        <p>130</p>
+        <p>220</p>
+    </div>
+    
+    <p id = "result">평균: </p>
+    <p id = "max">최고점: </p>
+
+    <script>
+        let all = document.querySelectorAll('#list>p');
+        let sum = 0;
+        let maxi = 0;
+        console.log(all);  //p를 벗겨야함. 텍스트만 가지고 오게.
+        for (let one of all){
+            one = one.innerText;
+            sum = parseInt(one) + sum;
+            console.log(one.length);
+            let ave = sum/all.length; // 왜 one.length가 아니라 all.length가 되는 걸까?
+            result.innerText = "평균: " + ave;
+            for (let i = 0; i < one.length; i++){
+                if (maxi < parseInt(one));
+                maxi = parseInt(one);
+                console.log(maxi);
+            }
+            max.innerText = "최고점: " + maxi;
+        }
+
+
+    </script>
+</body>
+</html>
